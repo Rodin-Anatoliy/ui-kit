@@ -33,9 +33,6 @@
     "import",
     "unicorn"
   ],
-  "settings": {
-    "import/resolver":  {"webpack" : {"config":  "./webpack.config.js"}}
-  },
   "rules": {
     "simple-import-sort/imports": "error",
     "prettier/prettier": ["error", { "singleQuote": true, "trailingComma": "all", "tabWidth": 2 }], 
@@ -311,7 +308,7 @@
     "unicorn/no-keyword-prefix": "off",
     "unicorn/no-lonely-if": "error",
     "no-nested-ternary": "off",
-    "unicorn/no-nested-ternary": "error",
+    "unicorn/no-nested-ternary": "warn",
     "unicorn/no-new-array": "error",
     "unicorn/no-new-buffer": "error",
     "unicorn/no-null": "error",

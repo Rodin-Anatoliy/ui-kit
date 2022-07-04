@@ -1,5 +1,6 @@
-import './main.css';
-import 'assets/fonts/lato.css';
+import './lib/main.css';
+import './lib/styles/typography.styles.css';
+import './lib/assets/fonts/lato.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

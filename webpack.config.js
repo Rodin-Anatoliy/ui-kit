@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const Dotenv = require('dotenv-webpack');
+
 const dev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -12,8 +13,8 @@ module.exports = {
   },
   output: {
     publicPath: '/',
-    path: path.resolve(__dirname, 'dist/'),
-    filename: '[name].[hash].js',
+    path: path.resolve(__dirname, 'build/'),
+    filename: '[name].js',
   },
   resolve: {
     alias: {
@@ -112,6 +113,6 @@ module.exports = {
     open: true,
     compress: true,
     hot: true,
-    port: 9000,
+    port: 9001,
   }
 };

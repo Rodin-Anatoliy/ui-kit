@@ -1,65 +1,117 @@
-import { styled } from '@linaria/react';
-import { NumberInput } from 'components/Input/NumberInput';
-import { PasswordInput } from 'components/Input/PasswordInput';
-import { TextAreaInput } from 'components/Input/TextAreaInput';
-import { TextInput } from 'components/Input/TextInput';
 import React, { useState } from 'react';
-import { Subtitle, TempContainer, Title } from 'styles/shared.styles';
 
-const InputStoryContainer = styled.div`
-  display: flex;
-  width: 300px;
-  justify-content: flex-start;
-  margin-bottom: 1rem;
-`;
+import { Subtitle, TempContainer, Title } from '../lib/styles/shared.styles';
+import { NumberInput } from '../lib/components/Input/NumberInput';
+import { PasswordInput } from '../lib/components/Input/PasswordInput';
+import { TextAreaInput } from '../lib/components/Input/TextAreaInput';
+import { TextInput } from '../lib/components/Input/TextInput';
+import { IconNames } from '../lib/components/Icon';
+import { NumberCounter, SelectInput } from '../lib/components/Input';
 
-const InputStoryContainerSmall = styled(InputStoryContainer)`
-  width: 150px;
-`;
+
 
 export const DefaultTextInput = () => {
   const [value, setValue] = useState('');
+  
+  const [suggestions] = useState([
+    { value: '0', label: 'Rounds # 0' },
+    { value: '1', label: 'Rounds # 1' },
+    { value: '2', label: 'Rounds # 2' },
+    { value: '3', label: 'Rounds # 3' },
+    { value: '4', label: 'Rounds # 4' },
+  ]);
+
+  const [selectValue, setSelectValue] = useState(suggestions[0].value);
+
   return (
     <TempContainer>
-      <InputStoryContainer>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="full width"
           value={value}
           onChange={(state) => setValue(state)}
           required
         />
-      </InputStoryContainer>
-      <InputStoryContainerSmall>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '150px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="small"
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainerSmall>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="full width with counter"
           value={value}
           onChange={(state) => setValue(state)}
           withCounter
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           placeholder="placeholder"
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="disabled"
-          leftIcon="test"
+          leftIcon={IconNames.test}
           value={value}
           onChange={(state) => setValue(state)}
           disabled
         />
-      </InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '200px',
+          justifyContent: 'flex-end',
+          paddingLeft: '20px',
+          marginBottom: '16px',
+        }}
+      >
+        <SelectInput 
+          values={suggestions} value={selectValue} onChange={setSelectValue}          
+        />
+      </div>
     </TempContainer>
   );
 };
@@ -68,56 +120,104 @@ export const WithIcons = () => {
   const [value, setValue] = useState('');
   return (
     <TempContainer>
-      <InputStoryContainer>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="with start icon"
-          leftIcon="test"
+          leftIcon={IconNames.test}
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="with right icon"
-          rightIcon="test"
+          rightIcon={IconNames.test}
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="with start & right icon"
-          leftIcon="test"
-          rightIcon="test"
+          leftIcon={IconNames.test}
+          rightIcon={IconNames.test}
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainer>
+      </div>
     </TempContainer>
   );
 };
 
 export const WithError = () => {
   const [value, setValue] = useState('');
+  const [hours, setHours] = useState(0);
 
   return (
     <TempContainer>
-      <InputStoryContainer>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="full width"
           error="123456 78912 345678 912345 678912"
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainer>
-      <InputStoryContainerSmall>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '150px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextInput
           label="small"
           error="123456 78912 345678 912345 678912"
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainerSmall>
+      </div>
+      <div>
+        <NumberCounter
+          prefix={'h'}
+          value={hours}
+          increment={() =>
+            setHours(hours >= 23 ? 0 : hours + 1)
+          }
+          decrement={() =>
+            setHours(hours === 0 ? 23 : hours - 1 )
+          }
+        />
+      </div>
     </TempContainer>
   );
 };
@@ -127,38 +227,66 @@ export const DefaultPasswordInputs = () => {
 
   return (
     <TempContainer>
-      <InputStoryContainer>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <PasswordInput
           label="Password"
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <PasswordInput
           label="Password"
           value={value}
           onChange={(state) => setValue(state)}
-          leftIcon="test"
+          leftIcon={IconNames.test}
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <PasswordInput
           label="Password"
           value={value}
           onChange={(state) => setValue(state)}
-          leftIcon="test"
+          leftIcon={IconNames.test}
           disabled
         />
-      </InputStoryContainer>
-      <InputStoryContainerSmall>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '150px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <PasswordInput
           label="Password"
           value={value}
           onChange={(state) => setValue(state)}
           error="1111 11111 11111 111111 11111"
         />
-      </InputStoryContainerSmall>
+      </div>
     </TempContainer>
   );
 };
@@ -168,39 +296,67 @@ export const DefaultNumberInputs = () => {
 
   return (
     <TempContainer>
-      <InputStoryContainer>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <NumberInput
           label="Number"
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <NumberInput
           label="Number"
           value={value}
           onChange={(state) => setValue(state)}
-          leftIcon="test"
-          rightIcon="test"
+          leftIcon={IconNames.test}
+          rightIcon={IconNames.test}
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <NumberInput
           label="Number"
           value={value}
           onChange={(state) => setValue(state)}
-          leftIcon="test"
+          leftIcon={IconNames.test}
           disabled
         />
-      </InputStoryContainer>
-      <InputStoryContainerSmall>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '150px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <NumberInput
           label="Number"
           value={value}
           onChange={(state) => setValue(state)}
           error="1111 11111 11111 111111 11111"
         />
-      </InputStoryContainerSmall>
+      </div>
     </TempContainer>
   );
 };
@@ -210,29 +366,50 @@ export const DefaultTextAreaInput = () => {
 
   return (
     <TempContainer style={{ minHeight: '200px' }}>
-      <InputStoryContainer>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextAreaInput
           label="TextArea"
           value={value}
           onChange={(state) => setValue(state)}
           error="555555 dddddddd ddddddddddd ddddddddddd ddddddddddd dddddddddddd ddddddddddddd ddddddddd"
         />
-      </InputStoryContainer>
-      <InputStoryContainer>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '300px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextAreaInput
           label="TextArea"
           value={value}
           onChange={(state) => setValue(state)}
           disabled
         />
-      </InputStoryContainer>
-      <InputStoryContainerSmall>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          width: '150px',
+          justifyContent: 'flex-start',
+          marginBottom: '16px',
+        }}
+      >
         <TextAreaInput
           label="TextArea"
           value={value}
           onChange={(state) => setValue(state)}
         />
-      </InputStoryContainerSmall>
+      </div>
     </TempContainer>
   );
 };

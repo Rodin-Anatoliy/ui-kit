@@ -1,21 +1,41 @@
-import testIcon from 'assets/icons/test-icon.svg';
-import { Button } from 'components/Button/index';
 import React from 'react';
-import { Subtitle, TempContainer, Title } from 'styles/shared.styles';
+import { Subtitle, TempContainer, Title } from '../lib/styles/shared.styles';
+import { Button } from '../lib/components/Button';
+import { IconNames } from '../lib/components/Icon/Icon';
+import { Card } from '../lib/components/Widgets/Card';
 
 const click = () => console.log('clicked');
 
 export const WithText = () => (
   <>
     <TempContainer>
-      <Button onClick={click}>filled</Button>
-      <Button onClick={click} btnType="outlined">
+      <Button onClick={click} isBold={true} colorType="primary">filled</Button>
+      <Button onClick={click} isBold={true} colorType="primary" btnType="outlined">
         outlined
       </Button>
-      <Button onClick={click} btnType="half-opacity">
+      <Button onClick={click} isBold={true} colorType="primary" btnType="half-opacity">
         half-opacity
       </Button>
-      <Button onClick={click} btnType="no-fill">
+      <Button onClick={click} colorType="primary" btnType="colored-content">
+        colored content
+      </Button>
+      <Button onClick={click} colorType="primary" btnType="no-fill">
+        no-fill
+      </Button>
+    </TempContainer>
+
+    <TempContainer>
+      <Button onClick={click} colorType="in-progress">filled</Button>
+      <Button onClick={click} colorType="in-progress" btnType="outlined">
+        outlined
+      </Button>
+      <Button onClick={click} colorType="in-progress" btnType="half-opacity">
+        half-opacity
+      </Button>
+      <Button onClick={click} colorType="in-progress" btnType="colored-content">
+        colored content
+      </Button>
+      <Button onClick={click} colorType="in-progress" btnType="no-fill">
         no-fill
       </Button>
     </TempContainer>
@@ -39,6 +59,14 @@ export const WithText = () => (
         size="medium"
       >
         half-opacity
+      </Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="negative"
+        size="medium"
+      >
+        colored content
       </Button>
       <Button
         onClick={click}
@@ -72,6 +100,14 @@ export const WithText = () => (
       </Button>
       <Button
         onClick={click}
+        btnType="colored-content"
+        colorType="positive"
+        size="small"
+      >
+        colored content
+      </Button>
+      <Button
+        onClick={click}
         btnType="no-fill"
         colorType="positive"
         size="small"
@@ -89,6 +125,9 @@ export const WithText = () => (
       </Button>
       <Button onClick={click} btnType="half-opacity" colorType="accent">
         half-opacity
+      </Button>
+      <Button onClick={click} btnType="colored-content" colorType="accent">
+        colored content
       </Button>
       <Button onClick={click} btnType="no-fill" colorType="accent">
         no-fill
@@ -115,6 +154,14 @@ export const WithText = () => (
       >
         half-opacity
       </Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="white"
+        size="medium"
+      >
+        colored content
+      </Button>
       <Button onClick={click} btnType="no-fill" colorType="white" size="medium">
         no-fill
       </Button>
@@ -135,7 +182,39 @@ export const WithText = () => (
       >
         half-opacity
       </Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="black"
+        size="small"
+      >
+        colored content
+      </Button>
       <Button onClick={click} btnType="no-fill" colorType="black" size="small">
+        no-fill
+      </Button>
+    </TempContainer>
+
+    <TempContainer>
+      <Button onClick={click}>
+        filled
+      </Button>
+      <Button onClick={click} btnType="outlined">
+        outlined
+      </Button>
+      <Button
+        onClick={click}
+        btnType="half-opacity"
+      >
+        half-opacity
+      </Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+      >
+        colored content
+      </Button>
+      <Button onClick={click} btnType="no-fill">
         no-fill
       </Button>
     </TempContainer>
@@ -145,16 +224,19 @@ export const WithText = () => (
 export const WithStartIcon = () => (
   <>
     <TempContainer>
-      <Button onClick={click} startIcon="test">
+      <Button colorType="primary" onClick={click} startIcon={IconNames.test}>
         filled
       </Button>
-      <Button onClick={click} btnType="outlined" startIcon="test">
+      <Button colorType="primary" onClick={click} btnType="outlined" startIcon={IconNames.test}>
         outlined
       </Button>
-      <Button onClick={click} btnType="half-opacity" startIcon="test">
+      <Button colorType="primary" onClick={click} btnType="half-opacity" startIcon={IconNames.test}>
         half-opacity
       </Button>
-      <Button onClick={click} btnType="no-fill" startIcon="test">
+      <Button colorType="primary" onClick={click} btnType="colored-content" startIcon={IconNames.test}>
+        colored content
+      </Button>
+      <Button colorType="primary" onClick={click} btnType="no-fill" startIcon={IconNames.test}>
         no-fill
       </Button>
     </TempContainer>
@@ -164,7 +246,7 @@ export const WithStartIcon = () => (
         onClick={click}
         colorType="negative"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         filled
       </Button>
@@ -173,7 +255,7 @@ export const WithStartIcon = () => (
         btnType="outlined"
         colorType="negative"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         outlined
       </Button>
@@ -182,16 +264,25 @@ export const WithStartIcon = () => (
         btnType="half-opacity"
         colorType="negative"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         half-opacity
+      </Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="negative"
+        size="medium"
+        startIcon={IconNames.test}
+      >
+        colored content
       </Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="negative"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         no-fill
       </Button>
@@ -202,7 +293,7 @@ export const WithStartIcon = () => (
         onClick={click}
         colorType="positive"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         filled
       </Button>
@@ -211,7 +302,7 @@ export const WithStartIcon = () => (
         btnType="outlined"
         colorType="positive"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         outlined
       </Button>
@@ -220,30 +311,39 @@ export const WithStartIcon = () => (
         btnType="half-opacity"
         colorType="positive"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         half-opacity
+      </Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="positive"
+        size="small"
+        startIcon={IconNames.test}
+      >
+        colored content
       </Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="positive"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         no-fill
       </Button>
     </TempContainer>
 
     <TempContainer>
-      <Button onClick={click} colorType="accent" startIcon="test">
+      <Button onClick={click} colorType="accent" startIcon={IconNames.test}>
         filled
       </Button>
       <Button
         onClick={click}
         btnType="outlined"
         colorType="accent"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         outlined
       </Button>
@@ -251,15 +351,23 @@ export const WithStartIcon = () => (
         onClick={click}
         btnType="half-opacity"
         colorType="accent"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         half-opacity
       </Button>
       <Button
         onClick={click}
+        btnType="colored-content"
+        colorType="accent"
+        startIcon={IconNames.test}
+      >
+        colored content
+      </Button>
+      <Button
+        onClick={click}
         btnType="no-fill"
         colorType="accent"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         no-fill
       </Button>
@@ -270,7 +378,7 @@ export const WithStartIcon = () => (
         onClick={click}
         colorType="white"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         filled
       </Button>
@@ -279,7 +387,7 @@ export const WithStartIcon = () => (
         btnType="outlined"
         colorType="white"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         outlined
       </Button>
@@ -288,16 +396,25 @@ export const WithStartIcon = () => (
         btnType="half-opacity"
         colorType="white"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         half-opacity
+      </Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="white"
+        size="medium"
+        startIcon={IconNames.test}
+      >
+        colored content
       </Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="white"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         no-fill
       </Button>
@@ -308,7 +425,7 @@ export const WithStartIcon = () => (
         onClick={click}
         colorType="black"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         filled
       </Button>
@@ -317,7 +434,7 @@ export const WithStartIcon = () => (
         btnType="outlined"
         colorType="black"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         outlined
       </Button>
@@ -326,16 +443,25 @@ export const WithStartIcon = () => (
         btnType="half-opacity"
         colorType="black"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         half-opacity
+      </Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="black"
+        size="small"
+        startIcon={IconNames.test}
+      >
+        colored content
       </Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="black"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       >
         no-fill
       </Button>
@@ -345,7 +471,7 @@ export const WithStartIcon = () => (
 
 export const WithEndIcon = () => (
   <TempContainer>
-    <Button onClick={click} endIcon="test" btnType="filled">
+    <Button colorType="primary" onClick={click} endIcon={IconNames.test} btnType="filled">
       Click me
     </Button>
   </TempContainer>
@@ -354,14 +480,11 @@ export const WithEndIcon = () => (
 export const IconOnly = () => (
   <>
     <TempContainer>
-      <Button onClick={click} startIcon="test"></Button>
-      <Button onClick={click} btnType="outlined" startIcon="test"></Button>
-      <Button
-        onClick={click}
-        btnType="half-opacity"
-        startIcon="test"
-      ></Button>
-      <Button onClick={click} btnType="no-fill" startIcon="test"></Button>
+      <Button colorType="primary" onClick={click} startIcon={IconNames.test}></Button>
+      <Button colorType="primary" onClick={click} btnType="outlined" startIcon={IconNames.test}></Button>
+      <Button colorType="primary" onClick={click} btnType="half-opacity" startIcon={IconNames.test}></Button>
+      <Button colorType="primary" onClick={click} btnType="colored-content" startIcon={IconNames.test}></Button>
+      <Button colorType="primary" onClick={click} btnType="no-fill" startIcon={IconNames.test}></Button>
     </TempContainer>
 
     <TempContainer>
@@ -369,28 +492,35 @@ export const IconOnly = () => (
         onClick={click}
         colorType="negative"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="outlined"
         colorType="negative"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="half-opacity"
         colorType="negative"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
+      ></Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="negative"
+        size="medium"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="negative"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
     </TempContainer>
 
@@ -399,50 +529,67 @@ export const IconOnly = () => (
         onClick={click}
         colorType="positive"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="outlined"
         colorType="positive"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="half-opacity"
         colorType="positive"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
+      ></Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="positive"
+        size="small"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="positive"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
     </TempContainer>
 
     <TempContainer>
-      <Button onClick={click} colorType="accent" startIcon="test"></Button>
+      <Button
+        onClick={click}
+        colorType="accent"
+        startIcon={IconNames.test}
+      ></Button>
       <Button
         onClick={click}
         btnType="outlined"
         colorType="accent"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="half-opacity"
         colorType="accent"
-        startIcon="test"
+        startIcon={IconNames.test}
+      ></Button>
+            <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="accent"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="accent"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
     </TempContainer>
 
@@ -451,28 +598,35 @@ export const IconOnly = () => (
         onClick={click}
         colorType="white"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="outlined"
         colorType="white"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="half-opacity"
         colorType="white"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
+      ></Button>
+            <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="white"
+        size="medium"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="white"
         size="medium"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
     </TempContainer>
 
@@ -481,45 +635,61 @@ export const IconOnly = () => (
         onClick={click}
         colorType="black"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="outlined"
         colorType="black"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="half-opacity"
         colorType="black"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
+      ></Button>
+      <Button
+        onClick={click}
+        btnType="colored-content"
+        colorType="black"
+        size="small"
+        startIcon={IconNames.test}
       ></Button>
       <Button
         onClick={click}
         btnType="no-fill"
         colorType="black"
         size="small"
-        startIcon="test"
+        startIcon={IconNames.test}
       ></Button>
+    </TempContainer>
+
+    <TempContainer>
+      <Card header="Header Card">
+        <h3>Content Card</h3>
+      </Card>
     </TempContainer>
   </>
 );
 
 export const Disabled = () => (
   <TempContainer>
-    <Button onClick={click} disabled btnType="filled">
+    <Button colorType="primary" onClick={click} disabled btnType="filled">
       filled
     </Button>
-    <Button onClick={click} disabled btnType="outlined">
+    <Button colorType="primary" onClick={click} disabled btnType="outlined">
       outlined
     </Button>
-    <Button onClick={click} disabled btnType="half-opacity">
+    <Button colorType="primary" onClick={click} disabled btnType="half-opacity">
       half-opacity
     </Button>
-    <Button onClick={click} disabled btnType="no-fill">
+    <Button colorType="primary" onClick={click} disabled btnType="colored-content">
+      colored content
+    </Button>
+    <Button colorType="primary" onClick={click} disabled btnType="no-fill">
       no-fill
     </Button>
     <Button onClick={click} disabled colorType="white">
@@ -529,6 +699,26 @@ export const Disabled = () => (
       black
     </Button>
   </TempContainer>
+);
+
+export const CustomColors = () => (
+  <>
+    <TempContainer>
+      <Button onClick={click} borderColor='red' contentColor='blue'>filled</Button>
+      <Button onClick={click} btnType="outlined" contentColor='black'>
+        outlined
+      </Button>
+      <Button onClick={click} borderColor='red' backgroundColor='light-blue' btnType="half-opacity">
+        half-opacity
+      </Button>
+      <Button onClick={click} borderColor='red' backgroundColor='light-blue' btnType="colored-content">
+        colored content
+      </Button>
+      <Button onClick={click} contentColor='blue' btnType="no-fill">
+        no-fill
+      </Button>
+    </TempContainer>
+  </>
 );
 
 const ButtonUIKit = () => (
@@ -544,6 +734,8 @@ const ButtonUIKit = () => (
     <IconOnly />
     <Subtitle>Disabled</Subtitle>
     <Disabled />
+    <Subtitle>Custom colors</Subtitle>
+    <CustomColors />
   </>
 );
 
