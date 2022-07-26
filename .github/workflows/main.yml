@@ -17,10 +17,10 @@ jobs:
           persist-credentials: false
 
       - name: Install 🔧
-        run: yarn install
+        run: npm install
 
       - name: Build 👷
-        run: yarn build
+        run: npm run build:prod
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1

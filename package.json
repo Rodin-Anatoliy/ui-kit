@@ -4,7 +4,15 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "webpack serve --mode development"
+    "dev": "webpack serve --mode development",
+    "build:prod": "webpack --mode production",
+    "build:js": "rm -rf dist && babel src/lib --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --copy-files",
+    "build:types": "tsc src/lib/**/**/*.ts src/lib/**/**/*.tsx --declaration --emitDeclarationOnly --jsx react --outDir dist/components --allowSyntheticDefaultImports --isolatedModules --allowJs && tsc src/lib/**/*.ts --declaration --emitDeclarationOnly --jsx react --outDir dist --allowSyntheticDefaultImports --isolatedModules --allowJs && tsc src/lib/index.ts --declaration --emitDeclarationOnly --jsx react --outDir dist --allowSyntheticDefaultImports --isolatedModules",
+    "build:css": "npm run build:prod && cp build/*.css dist/main.css && rm -rf build",
+    "build": "npm run build:js && npm run build:types && npm run build:css",
+    "postinstall": "npm run build",
+    "lint:write": "eslint --debug src/ && git add .",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
